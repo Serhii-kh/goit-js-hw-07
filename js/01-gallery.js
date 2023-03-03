@@ -29,11 +29,20 @@ galleryDivRef.addEventListener("click", onGalleryDivClick);
 
 function onGalleryDivClick(e) {
   e.preventDefault();
+
   if (e.target.nodeName !== "IMG") {
     return;
   }
-  const modalWindow = basicLightbox.create(".gallery a");
-  modalWindow.show();
-}
 
-console.log(galleryDivRef);
+  const modal = basicLightbox.create(`
+    <img src="${e.target.dataset.source}">
+`);
+
+  modal.show();
+
+  galleryDivRef.addEventListener("keydown", (e) => {
+    if (e.code === "Escape") {
+      modal.close();
+    }
+  });
+}
