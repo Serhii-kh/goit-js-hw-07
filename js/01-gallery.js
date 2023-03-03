@@ -28,7 +28,12 @@ galleryDivRef.insertAdjacentHTML("beforeend", galleryMarkup);
 galleryDivRef.addEventListener("click", onGalleryDivClick);
 
 function onGalleryDivClick(e) {
-  console.log(e.target);
+  e.preventDefault();
+  if (e.target.nodeName !== "IMG") {
+    return;
+  }
+  const modalWindow = basicLightbox.create(".gallery a");
+  modalWindow.show();
 }
 
 console.log(galleryDivRef);
