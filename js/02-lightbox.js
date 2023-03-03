@@ -18,7 +18,4 @@ const createGalleryMarkup = (items) => {
 const galleryMarkup = createGalleryMarkup(galleryItems);
 galleryDivRef.insertAdjacentHTML("beforeend", galleryMarkup);
 
-new SimpleLightbox(".gallery a", {
-
-	animationSpeed = 250
-});
+new SimpleLightbox(".gallery a", {});
