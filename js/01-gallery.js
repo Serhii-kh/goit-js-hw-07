@@ -41,13 +41,12 @@ function onGalleryDivClick(e) {
 `);
 
   modal.show();
-
-  galleryDivRef.addEventListener("keydown", onEscKeyPress);
+  window.addEventListener("keydown", onEscKeyPress);
 }
 
 function onEscKeyPress(e) {
   if (e.code === "Escape") {
-    galleryDivRef.removeEventListener("keydown", onEscKeyPress);
+    window.removeEventListener("keydown", onEscKeyPress);
     modal.close();
   }
 }
