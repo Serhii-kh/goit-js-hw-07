@@ -49,6 +49,5 @@ function onEscKeyPress(e) {
   if (e.code === "Escape") {
     galleryDivRef.removeEventListener("keydown", onEscKeyPress);
     modal.close();
-    console.log(`ESC PRESS`);
   }
 }
