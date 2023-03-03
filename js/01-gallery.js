@@ -27,6 +27,8 @@ galleryDivRef.insertAdjacentHTML("beforeend", galleryMarkup);
 
 galleryDivRef.addEventListener("click", onGalleryDivClick);
 
+let modal;
+
 function onGalleryDivClick(e) {
   e.preventDefault();
 
@@ -34,15 +36,19 @@ function onGalleryDivClick(e) {
     return;
   }
 
-  const modal = basicLightbox.create(`
+  modal = basicLightbox.create(`
     <img src="${e.target.dataset.source}">
 `);
 
   modal.show();
 
-  galleryDivRef.addEventListener("keydown", (e) => {
-    if (e.code === "Escape") {
-      modal.close();
-    }
-  });
+  galleryDivRef.addEventListener("keydown", onEscKeyPress);
+}
+
+function onEscKeyPress(e) {
+  if (e.code === "Escape") {
+    galleryDivRef.removeEventListener("keydown", onEscKeyPress);
+    modal.close();
+    console.log(`ESC PRESS`);
+  }
 }
