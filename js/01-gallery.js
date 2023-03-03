@@ -32,9 +32,7 @@ let modal;
 function onGalleryDivClick(e) {
   e.preventDefault();
 
-  if (e.target.nodeName !== "IMG") {
-    return;
-  }
+  if (e.target.nodeName !== "IMG") return;
 
   modal = basicLightbox.create(`
     <img src="${e.target.dataset.source}">
