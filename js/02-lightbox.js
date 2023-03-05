@@ -18,4 +18,7 @@ const createGalleryMarkup = (items) => {
 const galleryMarkup = createGalleryMarkup(galleryItems);
 galleryDivRef.insertAdjacentHTML("beforeend", galleryMarkup);
 
-new SimpleLightbox(".gallery a", {});
+new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionsDelay: 250,
+});
